@@ -1,0 +1,22 @@
+{%  extends 'base.html' %}
+
+{% block content %}
+
+    <div class = "text-center"> {# 부트스트랩 중앙정렬 클래스 #}
+        <div class="m-5">  {# 마진 주기 #}
+            <h4>Login</h4>
+        </div>
+        <div>
+            <form action="{% url 'accountapp:login' %}" method ="post">
+                {%  csrf_token %}
+                {{ form }}
+                <div class="m-5"> {# div 만들어서 제출 버튼 맨 밑으로 내림 #}
+                    <input type = "submit"
+                       class="btn btn-dark rounded-pill px-5">
+                </div>
+            </form>
+        </div>
+
+    </div>
+
+{% endblock %}
