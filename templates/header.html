@@ -1,33 +1,43 @@
-<div style="text-align: center; font-family: 'Comfortaa', cursive;
-font-family: 'Kanit', sans-serif;">
-    <h1>ONE PRODUCT</h1>
-    <div>
+<div style="text-align: center">
+    <div class = "oneproduct_header_logo">
 
+        <h1>ONE PRODUCT</h1>
+    </div>
 
-        <span>nav1</span>
-        <span>nav2</span>
-        {%  if not user.is_authenticated %}
+    <div class=" oneproduct_header_button ">
         <span>
-            <a href="{% url 'accountapp:login' %}">
+            nav1
+        </span>
+        <span>
+            nav2
+        </span>
+
+        {% if not user.is_authenticated %}
+        {# 유저 로그인 여부 확인 코드 / 로그인이 되어 있다면 #}
+        <span>
+            <a href="{% url 'accountapp:login' %}" >
                 Login
             </a>
         </span>
-
         <span>
             <a href="{% url 'accountapp:create' %}">
                 Sign Up
             </a>
-
         </span>
+
+        {#  로그인 되어 있다면 #}
         {% else %}
         <span>
-            <a href="{% url 'accountapp:logout' %}">
+            <a href="{%  url 'accountapp:detail' pk=user.pk %}">
+                MyPage
+            </a>
+        </span>
+        <span>
+            <a href = "{% url 'accountapp:logout' %}">
                 Logout
             </a>
         </span>
         {% endif %}
-
     </div>
 
 </div>
-
