@@ -40,3 +40,14 @@
 .NNS_B{
     font-family: "Kanit", cursive;
 }
+
+.round_button{
+    color : black;
+    text-decoration: none; /* 아이콘 언더라인 삭제 */
+    box-shadow: 0 0 black; /* 그림자 넣기 (그림자위치, 그림자크기) */
+    border-radius : 20rem; /* 둥글게 */
+    padding : 0.3rem;
+}
+/* 마우스 커서가 올렸을 때 변하는 색상 조정 */
+.round_button:hover{
+    color : dimgrey}
