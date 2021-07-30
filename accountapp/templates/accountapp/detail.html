@@ -26,20 +26,24 @@
             </h4>
             {% endif %}
         </div>
-        <div>
-            {{ target_user.date_joined }}
-        </div>
+{#        <div>#}
+{#            {{ target_user.date_joined }}#}
+{#        </div>#}
 
         {% if user == target_user %}     {# 요청 user, target 동일시에만 아래화면 보여줌 #}
 
         <div>
-            <a href="{% url 'accountapp:update' pk=target_user.pk %}">
-                Update Info
+            <a href="{% url 'accountapp:update' pk=target_user.pk %}"
+                class="material-icons round_button mx-4"
+                style = font-size:3rem;> {# 아이콘 크기 #}
+                manage_accounts
             </a>
-        </div>
-        <div>
-            <a href="{% url 'accountapp:delete' pk=target_user.pk %}">
-                Quit
+{#        </div>#}
+{#        <div>#}
+            <a href="{% url 'accountapp:delete' pk=target_user.pk %}"
+                class="material-icons round_button mx-4"
+                style = font-size:3rem;>
+                close
             </a>
         </div>
 
