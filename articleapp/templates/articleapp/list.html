@@ -3,9 +3,14 @@
 
 {% block content %}
     <style>
+        .container{
+            padding : 0;
+            margin : 0 auto; {# 앞 : 상하 , 뒤 : 좌우 #}
+
+        }
         .container div {
-            width: 280px;
-            background-color: white;
+            width: 45%;
+            max-width: 200px; {# 모바일과 웹 화면 비율조정을위해 width 45%, max-width 200px  #}
             display: flex;
             justify-content: center;
             align-items: center;
