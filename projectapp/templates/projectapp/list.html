@@ -17,11 +17,13 @@
             align-items: center;
             border-radius: 1rem;
             flex-direction: column;
-            box-shadow: 0 0 1rem grey;
+
         }
 
         .container img{
-            width: 100%;
+            width: 7rem;
+            height: 7rem;
+            object-fit: cover; {# 사진크기 자동조절 #}
             border-radius: 1rem;
         }
 
@@ -37,7 +39,7 @@
                     <img src="{{ project.image.url }}" alt="">
                 </a>
                 <span class="my-2 NNS_B">
-                    {{ project.name  }}
+                    {{ project.name | truncatechars:10  }} {# 계시판 제목 길이 제한걸기 #}
                 </span>
             </div>
 
