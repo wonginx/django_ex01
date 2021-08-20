@@ -1,5 +1,5 @@
 <div style="text-align: center">
-    <div class = "oneproduct_header_logo">
+    <div class="oneproduct_header_logo">
 
         <h1>ONE PRODUCT</h1>
     </div>
@@ -15,29 +15,36 @@
                 Projects
             </a>
         </span>
+        {% if user.is_authenticated %}
+            <span>
+            <a href="{% url 'subscribeapp:list' %}">
+                Subscription
+            </a>
+        </span>
+        {% endif %}
 
         {% if not user.is_authenticated %}
-        {# 유저 로그인 여부 확인 코드 / 로그인이 되어 있다면 #}
-        <span>
-            <a href="{% url 'accountapp:login' %}" >
+            {# 유저 로그인 여부 확인 코드 / 로그인이 되어 있다면 #}
+            <span>
+            <a href="{% url 'accountapp:login' %}">
                 Login
             </a>
         </span>
-        <span>
+            <span>
             <a href="{% url 'accountapp:create' %}">
                 Sign Up
             </a>
         </span>
 
-        {#  로그인 되어 있다면 #}
+            {#  로그인 되어 있다면 #}
         {% else %}
-        <span>
-            <a href="{%  url 'accountapp:detail' pk=user.pk %}">
+            <span>
+            <a href="{% url 'accountapp:detail' pk=user.pk %}">
                 MyPage
             </a>
         </span>
-        <span>
-            <a href = "{% url 'accountapp:logout' %}">
+            <span>
+            <a href="{% url 'accountapp:logout' %}">
                 Logout
             </a>
         </span>
