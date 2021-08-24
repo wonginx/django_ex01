@@ -16,3 +16,4 @@ class Article(models.Model):
 
     created_at = models.DateField(auto_now_add=True, null=True) #DB에 저장되는 순간에 시간을 찍어줌
 # models 수정 후엔 마이그레이트 진행
+    like = models.IntegerField(default=0)
