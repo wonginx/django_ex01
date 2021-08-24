@@ -5,9 +5,22 @@
     <div class="container text-center">
         <div class='my-5'>
             {#  계시글 제목, 글쓴이, 작성일자 #}
-            <h1 class="NNS_B">{{  target_article.title }}</h1>
-            <h4>{{  target_article.writer.profile.nickname }}</h4>
-            <p>{{  target_article.created_at }}</p>
+            <h1 class="NNS_B">{{ target_article.title }}</h1>
+            {#  좋아요 기능 #}
+            <div class="my-3">
+                <a href="{% url 'likeapp:article_like' article_pk=target_article.pk %}"
+                   class="material-icons"
+                   style="vertical-align: middle;
+                            font-size:1.4rem;
+                            color:#f77">
+                    favorite
+                </a>
+                <span style="vertical-align: middle; font-size:1.2rem">
+                    {{ target_article.like }}
+                </span>
+            </div>
+            <h4>{{ target_article.writer.profile.nickname }}</h4>
+            <p>{{ target_article.created_at }}</p>
         </div>
 
         <hr>
@@ -16,19 +29,19 @@
             {#  계시글 대표이미지, 글 내용 #}
             <img class="article_image" src="{{ target_article.image.url }}" alt="">
             <div class="my-5 article_content">
-            {{ target_article.content }}
+                {{ target_article.content }}
             </div>
             {% if target_article.writer == user %}
-            <div>
-                <a href="{%  url 'articleapp:update' pk=target_article.pk %}"
-                    class="btn btn-success rounded-pill px-5">
-                    Update
-                </a>
-                <a href="{%  url 'articleapp:delete' pk=target_article.pk %}"
-                    class="btn btn-danger rounded-pill px-5">
-                    Delete
-                </a>
-            </div>
+                <div>
+                    <a href="{% url 'articleapp:update' pk=target_article.pk %}"
+                       class="btn btn-success rounded-pill px-5">
+                        Update
+                    </a>
+                    <a href="{% url 'articleapp:delete' pk=target_article.pk %}"
+                       class="btn btn-danger rounded-pill px-5">
+                        Delete
+                    </a>
+                </div>
             {% endif %}
         </div>
 
@@ -42,7 +55,7 @@
                 <div class="comment_box">
                     <div>
                         <span class="NNS_B"
-                                style="font-size : 1.3rem;">
+                              style="font-size : 1.3rem;">
                             {{ comment.writer.profile.nickname }}
                         </span>
                         <span>{{ comment.created_at }}</span>
@@ -53,12 +66,12 @@
                         </p>
                     </div>
                     {% if comment.writer == user %}
-                    <div style="text-align:right">
-                        <a href="{% url 'commentapp:delete' pk=comment.pk %}"
-                            class="btn btn-danger rounded-pill px-5">
-                            Delete
-                        </a>
-                    </div>
+                        <div style="text-align:right">
+                            <a href="{% url 'commentapp:delete' pk=comment.pk %}"
+                               class="btn btn-danger rounded-pill px-5">
+                                Delete
+                            </a>
+                        </div>
                     {% endif %}
                 </div>
 
