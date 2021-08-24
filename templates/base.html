@@ -8,11 +8,20 @@
 {% include 'header.html' %}
 
 <hr>
+{# 메세지 불러오기 #}
+{% for message in messages%}
+    <div class = 'text-center'>
+        <div class="btn btn-success rounded-pill px-5">
+            {{ message }}
+        </div>
+    </div>
+{% endfor %}
+
 {% block content %}
 {% endblock %}
 
-
 <hr>
+
 {% include 'footer.html' %}
 
 </body>
