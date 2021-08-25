@@ -29,7 +29,7 @@
             {#  계시글 대표이미지, 글 내용 #}
             <img class="article_image" src="{{ target_article.image.url }}" alt="">
             <div class="my-5 article_content">
-                {{ target_article.content }}
+                {{ target_article.content | safe }} {# 출력물 글씨  안깨지 #}
             </div>
             {% if target_article.writer == user %}
                 <div>
