@@ -39,7 +39,7 @@ SECRET_KEY = env_list['SECRET_KEY']
 
 
 
-'django-insecure-%+a)crjrg+%-hl^aj!jwakji^e1hu!$*e#nz0qm#nfl*^i8pqg'
+# 'django-insecure-%+a)crjrg+%-hl^aj!jwakji^e1hu!$*e#nz0qm#nfl*^i8pqg'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
