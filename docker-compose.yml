@@ -14,13 +14,24 @@ services:
       - one_media:/data/media/
 
   django:
-    image: one_django:3
+    image: ex01_django:4
     networks:
       - one_network
     volumes:
       - one_static:/home/django_ex01/staticfiles/
       - one_media:/home/django_ex01/media
 
+  mariadb:
+    image: mariadb:10.5
+    networks:
+      - one_network
+    volumes:
+      - ex01_mariadb:/var/lib/mysql
+    environment:
+      MARIADB_ROOT_PASSWORD: password1234
+      MARIADB_DATABASE: django
+      MARIADB_USER: django
+      MARIADB_PASSWORD: password1234
 
 networks:
   one_network:
@@ -28,3 +39,4 @@ networks:
 volumes:
   one_static:
   one_media:
+  ex01_mariadb:
