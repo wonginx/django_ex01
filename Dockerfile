@@ -2,13 +2,11 @@ FROM python:3.9.0
 
 WORKDIR /home/
 
-RUN echo 'ver2'
+RUN echo 'ver3'
 
 RUN git clone https://github.com/wozzin/django_ex01.git
 
 WORKDIR /home/django_ex01/
-
-RUN echo "SECRET_KEY=django-insecure-%+a)crjrg+%-hl^aj!jwakji^e1hu!$*e#nz0qm#nfl*^i8pqg" > .env
 
 RUN pip install -r requirements.txt
 

@@ -14,7 +14,7 @@ services:
       - one_media:/data/media/
 
   django:
-    image: ex01_django:4
+    image: ex01_django:5
     networks:
       - one_network
     volumes:
