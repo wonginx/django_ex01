@@ -31,6 +31,10 @@ services:
       - one_network
     volumes:
       - ex01_mariadb:/var/lib/mysql
+    secrets:
+      - MARIADB_ROOT_PASSWORD
+      - MARIADB_USER
+      - MARIADB_PASSWORD
     environment:
       MARIADB_ROOT_PASSWORD: password1234
       MARIADB_DATABASE: django
