@@ -20,6 +20,8 @@ services:
     volumes:
       - one_static:/home/django_ex01/staticfiles/
       - one_media:/home/django_ex01/media
+    secrets:
+      - DJANGO_SECRET_KEY
 
   mariadb:
     image: mariadb:10.5
@@ -40,3 +42,7 @@ volumes:
   one_static:
   one_media:
   ex01_mariadb:
+
+secrets:
+  DJANGO_SECRET_KEY:
+    external: true
