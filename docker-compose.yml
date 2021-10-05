@@ -12,6 +12,7 @@ services:
       - /home/ubuntu/nginx.conf:/etc/nginx/nginx.conf
       - one_static:/data/static/
       - one_media:/data/media/
+      - one_log:/var/log/nginx/
 
   django:
     image: ex01_django:5
@@ -48,6 +49,7 @@ volumes:
   one_static:
   one_media:
   ex01_mariadb:
+  one_log:
 
 secrets:
   DJANGO_SECRET_KEY:
